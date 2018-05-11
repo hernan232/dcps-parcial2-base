@@ -1,1 +1,29 @@
+<h1>Interfaz "Author Detail"</h1>
+
+<div class="author-detail">
+  <p><h2>{{model.username}}</h2></p>
+  <p><img src={{model.profilePicture}}></p>
+  <p>First name: {{model.firstName}}</p>
+  <p>Last name: {{model.lastName}}</p>
+  <p>Email: {{model.email}}</p>
+</div>
+
+{{#if model.posts}}
+<strong>Posts</strong>
+
+<div class="posts">
+  <ul>
+    {{#each model.posts as |post|}}
+      <li>
+        <p><strong>Title:</strong> {{post.title}}</p>
+        <p><strong>Published date:</strong> {{post.publishedAt}}</p>
+        <p> <strong>Content:</strong> {{post.content}}</p>
+        <button type='button' name='delete' {{action 'deletePost' post}}>Delete Post</button>
+      </li>
+    {{/each}}
+  </ul>
+</div>
+{{else}}
+  <strong>This author doesn't have posts</strong>
+{{/if}}
 {{outlet}}

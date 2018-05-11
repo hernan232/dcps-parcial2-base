@@ -9,5 +9,5 @@ export default DS.Model.extend({
   profilePicture: DS.attr('string'),
 
   // Relations
-  blogPosts: DS.hasMany('blog-post')  
+  posts: DS.hasMany('blog-post')  
 });
